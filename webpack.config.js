@@ -22,10 +22,6 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         include: [ path.resolve(__dirname, './client') ],
-        query: {
-          presets: ['es2015', 'react'],
-          plugins: ['transform-object-rest-spread'],
-        }
       },
       {
         test: /(\.css|\.scss|\.sass)$/,

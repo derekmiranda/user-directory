@@ -2,7 +2,9 @@ import "babel-polyfill";
 import React from 'react';
 import { render } from 'react-dom';
 
+import App from './App';
+
 render(
-  <div>Hi</div>,
+  <App/>,
   document.getElementById('root')
 );
