@@ -16,7 +16,7 @@ export const receiveUsers = (userList) => ({
 })
 
 export const fetchUsers = (dispatch) => {
-  dispatch(requestUsers);
+  dispatch(requestUsers());
   return fetch(usersURL)
     .then(response => response.json())
     .then(json => {
