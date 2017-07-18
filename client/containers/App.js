@@ -4,12 +4,6 @@ import { connect } from 'react-redux';
 import { fetchUsers } from '../actions';
 
 export class App extends Component {
-  static propTypes = {
-    userList: PropTypes.array,
-    isFetching: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired,
-  }
-
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(fetchUsers);
@@ -20,18 +14,26 @@ export class App extends Component {
 
     let userListElem;
     if (userList) {
-      const userElems = userList.map(user => <li>`${user.first} ${user.list}`</li>);
+      const userElems = userList.map(
+        ({ name }, idx) => <li key={idx}>{name.first} {name.last}</li>
+      )
       userListElem = <ul>{userElems}</ul>;
     }
 
     return (
       <div>
         <h1>User Directory</h1>
-        {/*userListElem*/}
+        {userListElem}
       </div>
     )
   }
 }
+
+App.propTypes = {
+    userList: PropTypes.array,
+    isFetching: PropTypes.bool.isRequired,
+    dispatch: PropTypes.func.isRequired,
+  }
 
 const mapStateToProps = state => state;
 
