@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch';
 import { NUM_USERS } from './constants';
 
-const usersURL = `https://randomuser.me/api/?results=${NUM_USERS}&exc=login,nat,registered,id&noinfo`
+const usersURL = `https://randomuser.me/api/?results=${NUM_USERS}&exc=login,nat,registered,id&noinfo`;
 
 export const REQUEST_USERS = 'REQUEST_USERS';
 export const RECEIVE_USERS = 'RECEIVE_USERS';
