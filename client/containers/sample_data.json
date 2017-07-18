@@ -1,0 +1,119 @@
+{
+    "results": [
+        {
+            "gender": "male",
+            "name": {
+                "title": "monsieur",
+                "first": "nicolas",
+                "last": "marie"
+            },
+            "location": {
+                "street": "4370 rue des cuirassiers",
+                "city": "pully",
+                "state": "bern",
+                "postcode": 1336
+            },
+            "email": "nicolas.marie@example.com",
+            "dob": "1991-04-15 01:27:29",
+            "phone": "(248)-458-2758",
+            "cell": "(652)-608-8040",
+            "picture": {
+                "large": "https://randomuser.me/api/portraits/men/46.jpg",
+                "medium": "https://randomuser.me/api/portraits/med/men/46.jpg",
+                "thumbnail": "https://randomuser.me/api/portraits/thumb/men/46.jpg"
+            }
+        },
+        {
+            "gender": "female",
+            "name": {
+                "title": "ms",
+                "first": "sheryl",
+                "last": "sanders"
+            },
+            "location": {
+                "street": "3094 west street",
+                "city": "wells",
+                "state": "west sussex",
+                "postcode": "TC04 8PY"
+            },
+            "email": "sheryl.sanders@example.com",
+            "dob": "1981-07-29 08:40:01",
+            "phone": "015394 22630",
+            "cell": "0742-267-793",
+            "picture": {
+                "large": "https://randomuser.me/api/portraits/women/21.jpg",
+                "medium": "https://randomuser.me/api/portraits/med/women/21.jpg",
+                "thumbnail": "https://randomuser.me/api/portraits/thumb/women/21.jpg"
+            }
+        },
+        {
+            "gender": "female",
+            "name": {
+                "title": "mademoiselle",
+                "first": "maëly",
+                "last": "leclerc"
+            },
+            "location": {
+                "street": "9832 rue du village",
+                "city": "renens vd",
+                "state": "ticino",
+                "postcode": 7491
+            },
+            "email": "maëly.leclerc@example.com",
+            "dob": "1952-11-05 18:45:41",
+            "phone": "(875)-876-6931",
+            "cell": "(532)-847-0824",
+            "picture": {
+                "large": "https://randomuser.me/api/portraits/women/93.jpg",
+                "medium": "https://randomuser.me/api/portraits/med/women/93.jpg",
+                "thumbnail": "https://randomuser.me/api/portraits/thumb/women/93.jpg"
+            }
+        },
+        {
+            "gender": "female",
+            "name": {
+                "title": "mrs",
+                "first": "یاسمین",
+                "last": "حسینی"
+            },
+            "location": {
+                "street": "5976 سمیه",
+                "city": "سنندج",
+                "state": "تهران",
+                "postcode": 59451
+            },
+            "email": "یاسمین.حسینی@example.com",
+            "dob": "1974-06-26 22:40:39",
+            "phone": "023-74574762",
+            "cell": "0959-794-0539",
+            "picture": {
+                "large": "https://randomuser.me/api/portraits/women/14.jpg",
+                "medium": "https://randomuser.me/api/portraits/med/women/14.jpg",
+                "thumbnail": "https://randomuser.me/api/portraits/thumb/women/14.jpg"
+            }
+        },
+        {
+            "gender": "female",
+            "name": {
+                "title": "mrs",
+                "first": "araceli",
+                "last": "das neves"
+            },
+            "location": {
+                "street": "8343 rua treze de maio ",
+                "city": "magé",
+                "state": "mato grosso",
+                "postcode": 69237
+            },
+            "email": "araceli.dasneves@example.com",
+            "dob": "1965-03-15 23:19:02",
+            "phone": "(88) 6539-0341",
+            "cell": "(07) 5515-2465",
+            "picture": {
+                "large": "https://randomuser.me/api/portraits/women/41.jpg",
+                "medium": "https://randomuser.me/api/portraits/med/women/41.jpg",
+                "thumbnail": "https://randomuser.me/api/portraits/thumb/women/41.jpg"
+            }
+        }
+    ]
+}
