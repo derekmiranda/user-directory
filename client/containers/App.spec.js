@@ -6,3 +6,7 @@ it('renders correctly', () => {
   const tree = renderer.create(App()).toJSON();
   expect(tree).toMatchSnapshot();
 })
+
+xit('renders list of users', () => {
+
+})
