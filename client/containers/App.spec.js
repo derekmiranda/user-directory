@@ -6,7 +6,3 @@ it('renders correctly', () => {
   const tree = renderer.create(App()).toJSON();
   expect(tree).toMatchSnapshot();
 })
-
-xit(`fetches ${NUM_USERS} users from randomuser.me`, (done) => {
-  
-})
