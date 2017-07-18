@@ -1,7 +1,7 @@
 import React from 'react';
 
 const App = () => (
-  <div>Sup</div>
+  <div>Noice</div>
 );
 
 export default App;
