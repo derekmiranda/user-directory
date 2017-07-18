@@ -32,7 +32,7 @@ export class App extends Component {
 App.propTypes = {
     userList: PropTypes.array,
     isFetching: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func,
+    dispatch: PropTypes.func.isRequired,
   }
 
 const mapStateToProps = state => state;

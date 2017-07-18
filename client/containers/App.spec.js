@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import { shallow, mount } from 'enzyme';
-import nock from 'nock';
 import { readFile } from 'fs';
 import App from './App';
 import { requestUsers, receiveUsers } from '../actions';
@@ -25,7 +24,7 @@ const readFilePromise = new Promise((resolve, reject) => {
 beforeAll(done => {
   readFilePromise
     .then(json => fetchedData = json)
-    .then(done)
+    .then(done);
 })
 
 beforeEach(() => {
@@ -34,18 +33,12 @@ beforeEach(() => {
   store = mockStore(initialState);
 })
 
-afterEach(() => {
-  nock.cleanAll();
-})
-
 it('renders list of users from fetched data', () => {
-  nock('https://randomuser.me')
-    .get(`/api/?results=${NUM_USERS}&exc=login,nat,registered,id&noinfo`)
-    .reply(200, fetchedData);
-
-  wrapper = mount(<Provider store={store}><App /></Provider>);
+  const userList = fetchedData.results;
+  wrapper = mount(<App store={store} userList={userList}/>);
 
   const numUsers = fetchedData.results.length;
   const liWrapper = wrapper.find('li');
   expect(liWrapper.length).toBe(numUsers);
 })
+
