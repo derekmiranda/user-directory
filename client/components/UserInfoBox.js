@@ -14,11 +14,11 @@ const UserInfoBox = ({ first, last, dob, city, photo }) => {
 }
 
 UserInfoBox.propTypes = {
-  first: propTypes.string,
-  last: propTypes.string,
-  dob: propTypes.string,
-  city: propTypes.string,
-  photo: propTypes.string,
+  first: PropTypes.string,
+  last: PropTypes.string,
+  dob: PropTypes.string,
+  city: PropTypes.string,
+  photo: PropTypes.string,
 }
 
 export default UserInfoBox;
