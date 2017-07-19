@@ -4,7 +4,8 @@ import UserInfoSection from '../components/UserInfoSection';
 
 const VisibleUserList = (props) => {
   const { usersByLetter } = props;
-  const userSections = usersByLetter && Object.keys(usersByLetter)
+  const userSections = usersByLetter && usersByLetter
+    .map(section => section.letter)
     .map((letter, i) => (
       <UserInfoSection letter={letter} key={i} />
     ))
@@ -20,7 +21,7 @@ const VisibleUserList = (props) => {
 VisibleUserList.propTypes = {
   usersByLetter: PropTypes.array.isRequired,
   isFetching: PropTypes.bool.isRequired,
-  dispatch: PropTypes.func.isRequired,
+  dispatch: PropTypes.func,
 }
 
 export default VisibleUserList;
