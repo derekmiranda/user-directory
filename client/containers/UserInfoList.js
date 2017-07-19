@@ -31,7 +31,6 @@ const organizeUsersByLetter = (userList, nameType) => {
 
       return userObj;
     }, {})
-  console.log(usersByLetter);
   return usersByLetter;
 }
 

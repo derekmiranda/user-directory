@@ -5,7 +5,7 @@ import configureStore from 'redux-mock-store';
 import { mount } from 'enzyme';
 import { readFile } from 'fs';
 import UserInfoList from './UserInfoList';
-import LetterSection from './LetterSection';
+import UserInfoSection from '../components/UserInfoSection';
 
 import { requestUsers, receiveUsers } from '../actions';
 import { NUM_USERS } from '../constants';
@@ -31,8 +31,10 @@ beforeAll(done => {
     .then(json => {
       userList = json.results;
       defaultState = {
-        isFetching: false,
-        userList,
+        users: {
+          isFetching: false,
+          list: userList,
+        },
       }
     })
     .then(done);
@@ -56,7 +58,7 @@ it('should render letter sections by last name', () => {
   const store = mockStore(defaultState);
   wrapper = mountWithStore(store);
 
-  const letterSections = wrapper.find(LetterSection);
+  const letterSections = wrapper.find(UserInfoSection);
   
   // hard coded value for num of sections based on last name
   const expectedSectionNums = 3;

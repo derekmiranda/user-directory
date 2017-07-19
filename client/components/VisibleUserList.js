@@ -1,22 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import UserInfoSection from '../containers/UserInfoSection';
+import UserInfoSection from '../components/UserInfoSection';
 
 const VisibleUserList = (props) => {
-  const { userList } = props;
-
-  let userListElem;
-  if (userList) {
-    const userElems = userList.map(
-      ({ name }, idx) => <li key={idx}>{name.first} {name.last}</li>
-    )
-    userListElem = <ul>{userElems}</ul>;
-  }
+  const { usersByLetter } = props;
+  const userSections = usersByLetter && Object.keys(usersByLetter)
+    .map((letter, i) => (
+      <UserInfoSection letter={letter} key={i} />
+    ))
 
   return (
     <div>
       <h1>User Directory</h1>
-      {userListElem}
+      {userSections}
     </div>
   )
 }
