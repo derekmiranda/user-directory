@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import UserInfo from './UserInfo';
-import { createReadFilePromise } from '../utils';
+import { createReadFilePromise } from '../utils/tests';
 import configureStore from 'redux-mock-store';
 
 let wrapper, user, defaultState, store;

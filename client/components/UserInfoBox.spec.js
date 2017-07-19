@@ -1,6 +1,6 @@
 import { mount, shallow } from 'enzyme';
 import UserInfoBox from './UserInfoBox';
-import { createReadFilePromise } from '../utils';
+import { createReadFilePromise } from '../utils/tests';
 
 let wrapper, user, defaultState;
 
