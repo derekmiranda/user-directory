@@ -15,7 +15,7 @@ const mountWithStore = store => mount(
   </Provider>
 );
 
-const readFilePromise = createReadFilePromise(`${__dirname}/sample_data.json`);
+const readFilePromise = createReadFilePromise(`${__dirname}/../../shared/sample_data.json`);
 beforeAll(done => {
   readFilePromise
     .then(json => {
