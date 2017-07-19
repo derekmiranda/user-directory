@@ -1,7 +1,7 @@
+const getNameOfUser = (user, nameType) => user.name[nameType];
+
 export const organizeUsersByLetter = (userList, nameType) => {
-  // expect to see letter sections based on capitalized first letter of last names
-  const getNameOfUser = (user, nameType) => user.name[nameType];
-  const usersByLetter = userList
+  const usersLetterMap = userList
     .reduce((userObj, user) => {
       const name = getNameOfUser(user, nameType);
       const firstLetter = name[0];
@@ -14,5 +14,13 @@ export const organizeUsersByLetter = (userList, nameType) => {
 
       return userObj;
     }, {})
-  return usersByLetter;
+
+  const sortedUsersList = Object.keys(usersLetterMap)
+    .sort()
+    .map(letter => ({
+      letter,
+      users: usersLetterMap[letter],
+    }))
+    
+  return sortedUsersList;
 }
