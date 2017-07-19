@@ -31,12 +31,19 @@ it('renders user information', () => {
   expect(wrapper.find('.city').html()).toMatch(defaultState.city);
 })
 
-xit('capitalizes fields', () => {
+it('capitalizes fields', () => {
   wrapper = shallow(UserInfoBox(defaultState));
-  
-  expect(wrapper.find('img.photo').html()).toMatch(defaultState.photo);
-  expect(wrapper.find('.fullName').html()).toMatch(defaultState.first);
-  expect(wrapper.find('.fullName').html()).toMatch(defaultState.last);
-  expect(wrapper.find('.dob').html()).toMatch(defaultState.dob);
-  expect(wrapper.find('.city').html()).toMatch(defaultState.city);
+  const { first, last, city } = defaultState;
+
+  const fullName = wrapper.find('.fullName').text();
+  const fullNameMatch = fullName.match(/^(\w+) (\w+)$/);
+  const renderedFirst = fullNameMatch[1];
+  const renderedLast = fullNameMatch[2];
+
+  const renderedCity = wrapper.find('.city').text();
+  console.log(renderedCity);
+
+  [renderedFirst, renderedLast, renderedCity].forEach(str => {
+    expect(str[0]).toMatch(/[A-Z]/);
+  })
 })
