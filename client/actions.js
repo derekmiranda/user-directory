@@ -15,13 +15,25 @@ export const receiveUsers = (userList) => ({
   userList,
 })
 
+const capitalizeUserNames = (user) => {
+  const newUser = {...user};
+  const capitalize = str => str[0].toUpperCase() + str.slice(1);
+
+  ['first', 'last'].forEach(nameType => {
+    newUser.name[nameType] = capitalize(newUser.name[nameType]);
+  });
+
+  return newUser;
+}
+
 export const fetchUsers = (dispatch) => {
   dispatch(requestUsers());
   return fetch(usersURL)
     .then(response => response.json())
     .then(json => {
       const userList = json.results;
-      dispatch(receiveUsers(userList))
+      const processedUserList = userList.map(capitalizeUserNames);
+      dispatch(receiveUsers(processedUserList))
     })
 }
 
