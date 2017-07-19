@@ -6,7 +6,8 @@ import { mount } from 'enzyme';
 import UserInfoList from './UserInfoList';
 import UserInfoSection from '../components/UserInfoSection';
 import { requestUsers, receiveUsers } from '../actions';
-import { createReadFilePromise } from '../utils';
+import { createReadFilePromise } from '../utils/tests';
+import { organizeUsersByLetter } from '../utils/common';
 
 let store, wrapper, userList, defaultState;
 const mountWithStore = store => mount(
@@ -34,25 +35,20 @@ beforeEach(() => {
   const middleware = [thunk];
   const mockStore = configureStore(middleware);
   store = mockStore(defaultState);
+  wrapper = mountWithStore(store);
 })
 
-it('renders users from fetched data', () => {
-  wrapper = mountWithStore(store);
-
-  const numUsers = userList.length;
-  const liItems = wrapper.find('li');
-  expect(liItems.length).toBe(numUsers);
-})
-
-it('should render letter sections by last name', () => {
-  wrapper = mountWithStore(store);
-
+it('should render letter sections organized by last name', () => {
   const letterSections = wrapper.find(UserInfoSection);
-  
-  // hard coded value for num of sections based on last name
-  const expectedSectionNums = 3;
-  expect(letterSections.length).toBe(expectedSectionNums);
+  const usersByLetter = organizeUsersByLetter(userList, 'last');
+
+  const letters = 
+  const expectedSectionNum = Object.keys(usersByLetter).length;
+  expect(letterSections.length).toBe(expectedSectionNum);
 
   // expect to see letter sections based on capitalized first letter of last names
-  // get text in header to get letter
+  // check props
+
+  // get first letters of last name of sample data
+  // compare sorted w/ rendered section letters
 })

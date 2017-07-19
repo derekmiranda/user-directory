@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchUsers } from '../actions';
 import VisibleUserList from '../components/VisibleUserList';
+import { organizeUsersByLetter } from '../utils/common';
 
 export class UserInfoList extends Component {
   componentDidMount() {
@@ -13,25 +14,6 @@ export class UserInfoList extends Component {
   render() {
     return VisibleUserList(this.props);
   }
-}
-
-const organizeUsersByLetter = (userList, nameType) => {
-  // expect to see letter sections based on capitalized first letter of last names
-  const getNameOfUser = (user, nameType) => user.name[nameType];
-  const usersByLetter = userList
-    .reduce((userObj, user) => {
-      const name = getNameOfUser(user, nameType);
-      const firstLetter = name[0];
-
-      if (userObj[firstLetter] === undefined) {
-        userObj[firstLetter] = [user];
-      } else {
-        userObj[firstLetter].push(user);
-      }
-
-      return userObj;
-    }, {})
-  return usersByLetter;
 }
 
 const mapStateToProps = ({ users }) => {
