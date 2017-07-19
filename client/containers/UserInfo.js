@@ -14,6 +14,6 @@ const mapStateToProps = (_, ownProps) => {
   }
 }
 
-const ConnectedUserInfo = connect()(UserInfoBox);
+const ConnectedUserInfo = connect(mapStateToProps)(UserInfoBox);
 
 export default ConnectedUserInfo;
