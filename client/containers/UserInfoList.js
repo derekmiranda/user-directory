@@ -37,8 +37,6 @@ UserInfoList.propTypes = {
 
 const mapStateToProps = ({ users }) => {
   const { list, isFetching } = users;
-  // console.log(state);
-  // return state;
   return {
     userList: list,
     isFetching,
