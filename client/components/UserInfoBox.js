@@ -5,10 +5,10 @@ const UserInfoBox = ({ first, last, dob, city, photo }) => {
   const fullName = `${first} ${last}`;
   return (
     <div>
-      <img src={photo} alt={fullName} />
-      <h3>{fullName}</h3>
-      <p>DOB: {dob}</p>
-      <p>City: {city}</p>
+      <img className="photo" src={photo} alt={fullName} />
+      <h3 className="fullName">{fullName}</h3>
+      <p className="dob">DOB: {dob}</p>
+      <p className="city">City: {city}</p>
     </div>
   )
 }

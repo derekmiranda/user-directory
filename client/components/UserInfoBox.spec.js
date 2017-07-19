@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import UserInfoBox from './UserInfoBox';
 import { createReadFilePromise } from '../utils';
 
@@ -28,15 +28,13 @@ beforeEach(() => {
 })
 
 it('renders user information', () => {
-  const store = mockStore(defaultState);
-  wrapper = shallow(
-    <Provider store={store}>
-      <UserInfoBox />
-    </Provider>
-  )
+  wrapper = shallow(UserInfoBox(defaultState));
   
-  console.log(wrapper.text())
-  // expect to have tags w/ user information (first, last, dob, city, photo)
+  expect(wrapper.find('img.photo').html()).toMatch(defaultState.photo);
+  expect(wrapper.find('.fullName').html()).toMatch(defaultState.first);
+  expect(wrapper.find('.fullName').html()).toMatch(defaultState.last);
+  expect(wrapper.find('.dob').html()).toMatch(defaultState.dob);
+  expect(wrapper.find('.city').html()).toMatch(defaultState.city);
 })
 
 xit('capitalizes fields')
