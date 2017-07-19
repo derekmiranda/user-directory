@@ -4,19 +4,19 @@ import UserInfo from './UserInfo';
 import { createReadFilePromise } from '../utils/tests';
 import configureStore from 'redux-mock-store';
 
-let wrapper, user, defaultState, store;
+let wrapper, user, props, store;
 
 const readFilePromise = createReadFilePromise(`${__dirname}/../../shared/sample_data.json`);
 beforeAll(done => {
   readFilePromise
     .then(json => {
       user = json.results[0];
-      defaultState = {
+      props = {
         first: user.name.first,
         last: user.name.last,
         dob: user.dob,
         city: user.location.city,
-        photo: user.picture.medium,
+        photo: user.picture.large,
       }
     })
     .then(done);
@@ -24,12 +24,13 @@ beforeAll(done => {
 
 beforeEach(() => {
   const mockStore = configureStore();
-  store = mockStore(defaultState);
+  store = mockStore(props);
 })
 
 it('capitalizes fields', () => {
-  wrapper = mount(<UserInfo {...defaultState} store={store}/>);
-  const { first, last, city } = defaultState;
+  wrapper = mount(<UserInfo {...props} store={store}/>);
+  console.log(wrapper.html())
+  const { first, last, city } = props;
 
   const fullNameWrap = wrapper.find('.fullName');
   expect(fullNameWrap.length).toBe(1);

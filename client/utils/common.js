@@ -5,7 +5,7 @@ const cleanUpUserData = (user) => ({
   last: user.name.last,
   city: user.location.city,
   dob: user.dob,
-  photo: user.picture.medium,
+  photo: user.picture.large,
 })
 
 const byName = nameType => (userA, userB) => {
