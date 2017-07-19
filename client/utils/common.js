@@ -28,14 +28,16 @@ const byName = nameType => (userA, userB) => {
   // have valid chars (i.e. non-equal words) to compare with
   const { charA, charB } = getCharsToCompareWith(nameType);
   if (charA && charB) {
-    return charB.charCodeAt() - charA.charCodeAt();
+    const sortVal = charA.charCodeAt() - charB.charCodeAt();
+    return sortVal;
   }
   // compare w/ other name (e.g. if last doesn't work, sort by first)
   const otherNameType = nameType === 'last' ? 'first' : 'last';
   const { otherCharA, otherCharB } = getCharsToCompareWith(nameType);
 
   if (otherCharA && otherCharB) {
-    return otherCharB.charCodeAt() - otherCharA.charCodeAt();
+    const otherSortVal = otherCharA.charCodeAt() - otherCharB.charCodeAt();
+    return otherSortVal;
   }
 
   // indicate that users are on similar standing w/in sorting algorithm
