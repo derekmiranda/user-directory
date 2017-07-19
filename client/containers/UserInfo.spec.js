@@ -29,7 +29,6 @@ beforeEach(() => {
 
 it('capitalizes fields', () => {
   wrapper = mount(<UserInfo {...props} store={store}/>);
-  console.log(wrapper.html())
   const { first, last, city } = props;
 
   const fullNameWrap = wrapper.find('.fullName');
