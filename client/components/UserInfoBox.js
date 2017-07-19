@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const UserInfoBox = ({ first, last, dob, city, photo }) => {
+const UserInfoBox = (props) => {
+  const { first, last, dob, city, photo } = props;
   const fullName = `${first} ${last}`;
   return (
     <div>

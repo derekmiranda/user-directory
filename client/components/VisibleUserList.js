@@ -5,10 +5,9 @@ import UserInfoSection from '../components/UserInfoSection';
 const VisibleUserList = (props) => {
   const { usersByLetter } = props;
   const userSections = usersByLetter && usersByLetter
-    .map(section => section.letter)
-    .map((letter, i) => (
-      <UserInfoSection letter={letter} key={i} />
-    ))
+    .map((section, i) => {
+      return <UserInfoSection {...section} key={i} />;
+    })
 
   return (
     <div>
