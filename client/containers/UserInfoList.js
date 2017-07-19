@@ -30,11 +30,19 @@ export class UserInfoList extends Component {
 }
 
 UserInfoList.propTypes = {
-    userList: PropTypes.array,
-    isFetching: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired,
-  }
+  userList: PropTypes.array,
+  isFetching: PropTypes.bool.isRequired,
+  dispatch: PropTypes.func.isRequired,
+}
 
-const mapStateToProps = state => state;
+const mapStateToProps = ({ users }) => {
+  const { list, isFetching } = users;
+  // console.log(state);
+  // return state;
+  return {
+    userList: list,
+    isFetching,
+  }
+};
 
 export default connect(mapStateToProps)(UserInfoList);

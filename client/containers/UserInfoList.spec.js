@@ -29,13 +29,11 @@ const mountWithStore = store => mount(
 beforeAll(done => {
   readFilePromise
     .then(json => {
-      
       userList = json.results;
       defaultState = {
         isFetching: false,
         userList,
       }
-
     })
     .then(done);
 })
