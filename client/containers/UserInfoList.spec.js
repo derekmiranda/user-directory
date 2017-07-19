@@ -3,29 +3,19 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import { mount } from 'enzyme';
-import { readFile } from 'fs';
 import UserInfoList from './UserInfoList';
 import UserInfoSection from '../components/UserInfoSection';
-
 import { requestUsers, receiveUsers } from '../actions';
-import { NUM_USERS } from '../constants';
+import { createReadFilePromise } from '../utils';
 
 let mockStore, wrapper, userList, defaultState;
-
-const readFilePromise = new Promise((resolve, reject) => {
-  readFile(`${__dirname}/sample_data.json`, (err, data) => {
-    err && console.error(err);
-    const json = JSON.parse(data.toString());
-    resolve(json);
-  })
-})
-
 const mountWithStore = store => mount(
   <Provider store={store}>
     <UserInfoList />
   </Provider>
 );
 
+const readFilePromise = createReadFilePromise(`${__dirname}/sample_data.json`);
 beforeAll(done => {
   readFilePromise
     .then(json => {
