@@ -60,10 +60,9 @@ it('should render letter sections by last name', () => {
 
   const letterSections = wrapper.find(LetterSection);
   
-  letterSections.forEach(section => {
-    const sectionHeader = section.find('h2');
-    expect(sectionHeader.length).toBe(1);
-  })
+  // hard coded value for num of sections based on last name
+  const expectedSectionNums = 3;
+  expect(letterSections.length).toBe(expectedSectionNums);
 
   // expect to see letter sections based on capitalized first letter of last names
   // get text in header to get letter
