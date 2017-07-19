@@ -1,15 +1,17 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import { mount } from 'enzyme';
 import { readFile } from 'fs';
-import UserList from './UserList';
+import UserInfoList from './UserInfoList';
+import LetterSection from './LetterSection';
+
 import { requestUsers, receiveUsers } from '../actions';
 import { NUM_USERS } from '../constants';
 
-let mockStore, wrapper, fetchedData;
+let mockStore, wrapper, userList, defaultState;
+
 const readFilePromise = new Promise((resolve, reject) => {
   readFile(`${__dirname}/sample_data.json`, (err, data) => {
     err && console.error(err);
@@ -18,9 +20,23 @@ const readFilePromise = new Promise((resolve, reject) => {
   })
 })
 
+const mountWithStore = store => mount(
+  <Provider store={store}>
+    <UserInfoList />
+  </Provider>
+);
+
 beforeAll(done => {
   readFilePromise
-    .then(json => fetchedData = json)
+    .then(json => {
+      
+      userList = json.results;
+      defaultState = {
+        isFetching: false,
+        userList,
+      }
+
+    })
     .then(done);
 })
 
@@ -29,21 +45,26 @@ beforeEach(() => {
   mockStore = configureStore(middleware);
 })
 
-it('renders list of users from fetched data', () => {
-  const userList = fetchedData.results;
-  const initialState = {
-    isFetching: false,
-    userList,
-  }
-  const store = mockStore(initialState);
+it('renders users from fetched data', () => {
+  const store = mockStore(defaultState);
+  wrapper = mountWithStore(store);
 
-  wrapper = mount(
-    <Provider store={store}>
-      <UserList />
-    </Provider>
-  );
-
-  const numUsers = fetchedData.results.length;
+  const numUsers = userList.length;
   const liItems = wrapper.find('li');
   expect(liItems.length).toBe(numUsers);
+})
+
+it('should render letter sections by last name', () => {
+  const store = mockStore(defaultState);
+  wrapper = mountWithStore(store);
+
+  const letterSections = wrapper.find(LetterSection);
+  
+  letterSections.forEach(section => {
+    const sectionHeader = section.find('h2');
+    expect(sectionHeader.length).toBe(1);
+  })
+
+  // expect to see letter sections based on capitalized first letter of last names
+  // get text in header to get letter
 })
