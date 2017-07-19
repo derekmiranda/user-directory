@@ -8,12 +8,12 @@ import UserInfoSection from '../components/UserInfoSection';
 import { requestUsers, receiveUsers } from '../actions';
 import { createReadFilePromise } from '../utils';
 
-let mockStore, wrapper, userList, defaultState;
+let store, wrapper, userList, defaultState;
 const mountWithStore = store => mount(
   <Provider store={store}>
     <UserInfoList />
   </Provider>
-);
+)
 
 const readFilePromise = createReadFilePromise(`${__dirname}/../../shared/sample_data.json`);
 beforeAll(done => {
@@ -32,11 +32,11 @@ beforeAll(done => {
 
 beforeEach(() => {
   const middleware = [thunk];
-  mockStore = configureStore(middleware);
+  const mockStore = configureStore(middleware);
+  store = mockStore(defaultState);
 })
 
 it('renders users from fetched data', () => {
-  const store = mockStore(defaultState);
   wrapper = mountWithStore(store);
 
   const numUsers = userList.length;
@@ -45,7 +45,6 @@ it('renders users from fetched data', () => {
 })
 
 it('should render letter sections by last name', () => {
-  const store = mockStore(defaultState);
   wrapper = mountWithStore(store);
 
   const letterSections = wrapper.find(UserInfoSection);

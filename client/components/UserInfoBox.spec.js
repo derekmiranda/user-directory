@@ -1,9 +1,8 @@
-import React from 'react';
 import { mount, shallow } from 'enzyme';
 import UserInfoBox from './UserInfoBox';
 import { createReadFilePromise } from '../utils';
 
-let mockStore, wrapper, user, defaultState;
+let wrapper, user, defaultState;
 
 const readFilePromise = createReadFilePromise(`${__dirname}/../../shared/sample_data.json`);
 beforeAll(done => {
@@ -29,21 +28,4 @@ it('renders user information', () => {
   expect(wrapper.find('.fullName').html()).toMatch(defaultState.last);
   expect(wrapper.find('.dob').html()).toMatch(defaultState.dob);
   expect(wrapper.find('.city').html()).toMatch(defaultState.city);
-})
-
-it('capitalizes fields', () => {
-  wrapper = shallow(UserInfoBox(defaultState));
-  const { first, last, city } = defaultState;
-
-  const fullName = wrapper.find('.fullName').text();
-  const fullNameMatch = fullName.match(/^(\w+) (\w+)$/);
-  const renderedFirst = fullNameMatch[1];
-  const renderedLast = fullNameMatch[2];
-
-  const renderedCity = wrapper.find('.city').text();
-  console.log(renderedCity);
-
-  [renderedFirst, renderedLast, renderedCity].forEach(str => {
-    expect(str[0]).toMatch(/[A-Z]/);
-  })
 })
