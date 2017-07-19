@@ -3,16 +3,13 @@ import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import { readFile } from 'fs';
 import App from './App';
 import { requestUsers, receiveUsers } from '../actions';
 import { NUM_USERS } from '../constants';
 
-let store, wrapper, fetchedData;
-const initialState = {
-  isFetching: false,
-}
+let mockStore, wrapper, fetchedData;
 const readFilePromise = new Promise((resolve, reject) => {
   readFile(`${__dirname}/sample_data.json`, (err, data) => {
     err && console.error(err);
@@ -29,16 +26,24 @@ beforeAll(done => {
 
 beforeEach(() => {
   const middleware = [thunk];
-  const mockStore = configureStore(middleware);
-  store = mockStore(initialState);
+  mockStore = configureStore(middleware);
 })
 
 it('renders list of users from fetched data', () => {
   const userList = fetchedData.results;
-  wrapper = mount(<App store={store} userList={userList}/>);
+  const initialState = {
+    isFetching: false,
+    userList,
+  }
+  const store = mockStore(initialState);
+
+  wrapper = mount(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
 
   const numUsers = fetchedData.results.length;
-  const liWrapper = wrapper.find('li');
-  expect(liWrapper.length).toBe(numUsers);
+  const liItems = wrapper.find('li');
+  expect(liItems.length).toBe(numUsers);
 })
-
