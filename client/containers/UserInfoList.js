@@ -15,16 +15,31 @@ export class UserInfoList extends Component {
   }
 }
 
-UserInfoList.propTypes = {
-  userList: PropTypes.array,
-  isFetching: PropTypes.bool.isRequired,
-  dispatch: PropTypes.func.isRequired,
+const organizeUsersByLetter = (userList, nameType) => {
+  // expect to see letter sections based on capitalized first letter of last names
+  const getNameOfUser = (user, nameType) => user.name[nameType];
+  const usersByLetter = userList
+    .reduce((userObj, user) => {
+      const name = getNameOfUser(user, nameType);
+      const firstLetter = name[0];
+
+      if (userObj[firstLetter] === undefined) {
+        userObj[firstLetter] = [user];
+      } else {
+        userObj[firstLetter].push(user);
+      }
+
+      return userObj;
+    }, {})
+  console.log(usersByLetter);
+  return usersByLetter;
 }
 
 const mapStateToProps = ({ users }) => {
   const { list, isFetching } = users;
+  const usersByLetter = organizeUsersByLetter(list, 'last');
   return {
-    userList: list,
+    usersByLetter,
     isFetching,
   }
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import UserInfoSection from '../containers/UserInfoSection';
 
 const VisibleUserList = (props) => {
   const { userList } = props;
@@ -21,7 +22,7 @@ const VisibleUserList = (props) => {
 }
 
 VisibleUserList.propTypes = {
-  userList: PropTypes.array.isRequired,
+  usersByLetter: PropTypes.array.isRequired,
   isFetching: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired,
 }
