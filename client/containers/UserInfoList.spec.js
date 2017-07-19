@@ -38,17 +38,27 @@ beforeEach(() => {
   wrapper = mountWithStore(store);
 })
 
+const areArraysSimilar = (arr1, arr2) => {
+  return arr1.every((item1, idx) => {
+    const item2 = arr2[idx];
+    return item1 === item2;
+  })
+}
+
 it('should render letter sections organized by last name', () => {
   const letterSections = wrapper.find(UserInfoSection);
   const usersByLetter = organizeUsersByLetter(userList, 'last');
 
-  const letters = 
-  const expectedSectionNum = Object.keys(usersByLetter).length;
+  const expectedSectionNum = usersByLetter.length;
   expect(letterSections.length).toBe(expectedSectionNum);
 
-  // expect to see letter sections based on capitalized first letter of last names
-  // check props
+  const renderedLetters = letterSections.map(section => {
+    const { letter } = section.props();
+    return letter;
+  })
 
-  // get first letters of last name of sample data
-  // compare sorted w/ rendered section letters
+  const letters = usersByLetter.map(section => section.letter);
+  const sortedLetters = letters.slice().sort();
+
+  expect(areArraysSimilar(sortedLetters, renderedLetters)).toBeTruthy();
 })
