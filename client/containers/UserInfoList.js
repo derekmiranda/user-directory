@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchUsers } from '../actions';
 
-export class App extends Component {
+export class UserInfoList extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(fetchUsers);
@@ -29,7 +29,7 @@ export class App extends Component {
   }
 }
 
-App.propTypes = {
+UserInfoList.propTypes = {
     userList: PropTypes.array,
     isFetching: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired,
@@ -37,4 +37,4 @@ App.propTypes = {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(UserInfoList);

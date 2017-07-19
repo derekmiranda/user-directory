@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import { mount } from 'enzyme';
 import { readFile } from 'fs';
-import App from './App';
+import UserList from './UserList';
 import { requestUsers, receiveUsers } from '../actions';
 import { NUM_USERS } from '../constants';
 
@@ -39,7 +39,7 @@ it('renders list of users from fetched data', () => {
 
   wrapper = mount(
     <Provider store={store}>
-      <App />
+      <UserList />
     </Provider>
   );
 
