@@ -4,12 +4,12 @@ import { NUM_USERS } from './constants';
 const usersURL = `https://randomuser.me/api/?results=${NUM_USERS}&exc=login,nat,registered,id&noinfo`;
 
 export const REQUEST_USERS = 'REQUEST_USERS';
-export const RECEIVE_USERS = 'RECEIVE_USERS';
-export const CHANGE_SORT = 'CHANGE_SORT';
 
 export const requestUsers = () => ({
-  type: REQUEST_USERS,  
+  type: REQUEST_USERS,
 })
+
+export const RECEIVE_USERS = 'RECEIVE_USERS';
 
 export const receiveUsers = (userList) => ({
   type: RECEIVE_USERS,
@@ -17,7 +17,7 @@ export const receiveUsers = (userList) => ({
 })
 
 const capitalizeUserNames = (user) => {
-  const newUser = {...user};
+  const newUser = { ...user };
   const capitalize = str => str[0].toUpperCase() + str.slice(1);
 
   ['first', 'last'].forEach(nameType => {
@@ -38,8 +38,17 @@ export const fetchUsers = (dispatch) => {
     })
 }
 
+export const CHANGE_SORT = 'CHANGE_SORT';
+
 export const changeSort = (nameType) => ({
   type: CHANGE_SORT,
   nameType,
+})
+
+export const CHANGE_SEARCH = 'CHANGE_SEARCH';
+
+export const changeSearch = (search) => ({
+  type: CHANGE_SEARCH,
+  search,
 })
 
