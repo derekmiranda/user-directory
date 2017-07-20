@@ -3,7 +3,14 @@ import UserInfoBox from '../components/UserInfoBox';
 import { togglePopup } from '../actions';
 
 const capitalize = str => str[0].toUpperCase() + str.slice(1);
-const cleanUpDOB = dobStr => dobStr;
+const cleanUpDOB = dobStr => {
+  const dobMatch = dobStr.match(/^(\w{4})-(\w{2})-(\w{2})/);
+  const year = dobMatch[1];
+  const month = dobMatch[2];
+  const day = dobMatch[3];
+
+  return `${year}/${month}/${day}`;
+};
 
 const mapStateToProps = (state, ownProps) => {
   const { first, last, city, dob } = ownProps;
