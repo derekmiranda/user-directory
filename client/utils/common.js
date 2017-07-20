@@ -1,5 +1,15 @@
 export const getNameOfUser = (user, nameType) => user[nameType];
 
+export const cleanUpUserData = (user) => ({
+  first: user.name.first,
+  last: user.name.last,
+  username: user.login.username,
+  city: user.location.city,
+  dob: user.dob,
+  photo: user.picture.large,
+  thumbnail: user.picture.thumbnail,
+})
+
 const byName = nameType => (userA, userB) => {
   function getCharsToCompareWith(nameType) {
     const nameA = getNameOfUser(userA, nameType).toLowerCase();

@@ -7,7 +7,7 @@ import UserInfoList from './UserInfoList';
 import UserInfoSection from '../components/UserInfoSection';
 import { requestUsers, receiveUsers } from '../actions';
 import { createReadFilePromise } from '../utils/tests';
-import { organizeUsersByLetter } from '../utils/common';
+import { organizeUsersByLetter, cleanUpUserData } from '../utils/common';
 
 let store, wrapper, userList, defaultState;
 const mountWithStore = store => mount(
@@ -24,8 +24,10 @@ beforeAll(done => {
       defaultState = {
         users: {
           isFetching: false,
-          list: userList,
+          list: userList.map(cleanUpUserData),
+          nameType: 'last',
         },
+        search: '',
       }
     })
     .then(done);
@@ -47,7 +49,9 @@ const areArraysSimilar = (arr1, arr2) => {
 
 it('should render letter sections organized by last name', () => {
   const letterSections = wrapper.find(UserInfoSection);
-  const usersByLetter = organizeUsersByLetter(userList, 'last');
+  const processedList = userList.map(cleanUpUserData);
+
+  const usersByLetter = organizeUsersByLetter(processedList, 'last');
 
   const expectedSectionNum = usersByLetter.length;
   expect(letterSections.length).toBe(expectedSectionNum);
