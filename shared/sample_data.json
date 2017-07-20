@@ -21,6 +21,14 @@
                 "large": "https://randomuser.me/api/portraits/men/46.jpg",
                 "medium": "https://randomuser.me/api/portraits/med/men/46.jpg",
                 "thumbnail": "https://randomuser.me/api/portraits/thumb/men/46.jpg"
+            },
+            "login": {
+                "username": "blueostrich365",
+                "password": "melissa1",
+                "salt": "Ps0sSjqG",
+                "md5": "d9eb4fdb692f6def261b8d57e62a438c",
+                "sha1": "d2cb7cb9ad7c9b96f7e75aadb4472bd25c9726f9",
+                "sha256": "cf84d31fee744eaa16850044fe2decd0aee921f25cb2c4d963802f37dff9a7ac"
             }
         },
         {
@@ -44,6 +52,14 @@
                 "large": "https://randomuser.me/api/portraits/women/21.jpg",
                 "medium": "https://randomuser.me/api/portraits/med/women/21.jpg",
                 "thumbnail": "https://randomuser.me/api/portraits/thumb/women/21.jpg"
+            },
+            "login": {
+                "username": "blueostrich365",
+                "password": "melissa1",
+                "salt": "Ps0sSjqG",
+                "md5": "d9eb4fdb692f6def261b8d57e62a438c",
+                "sha1": "d2cb7cb9ad7c9b96f7e75aadb4472bd25c9726f9",
+                "sha256": "cf84d31fee744eaa16850044fe2decd0aee921f25cb2c4d963802f37dff9a7ac"
             }
         },
         {
@@ -67,6 +83,14 @@
                 "large": "https://randomuser.me/api/portraits/women/93.jpg",
                 "medium": "https://randomuser.me/api/portraits/med/women/93.jpg",
                 "thumbnail": "https://randomuser.me/api/portraits/thumb/women/93.jpg"
+            },
+            "login": {
+                "username": "blueostrich365",
+                "password": "melissa1",
+                "salt": "Ps0sSjqG",
+                "md5": "d9eb4fdb692f6def261b8d57e62a438c",
+                "sha1": "d2cb7cb9ad7c9b96f7e75aadb4472bd25c9726f9",
+                "sha256": "cf84d31fee744eaa16850044fe2decd0aee921f25cb2c4d963802f37dff9a7ac"
             }
         },
         {
@@ -90,6 +114,14 @@
                 "large": "https://randomuser.me/api/portraits/women/14.jpg",
                 "medium": "https://randomuser.me/api/portraits/med/women/14.jpg",
                 "thumbnail": "https://randomuser.me/api/portraits/thumb/women/14.jpg"
+            },
+            "login": {
+                "username": "blueostrich365",
+                "password": "melissa1",
+                "salt": "Ps0sSjqG",
+                "md5": "d9eb4fdb692f6def261b8d57e62a438c",
+                "sha1": "d2cb7cb9ad7c9b96f7e75aadb4472bd25c9726f9",
+                "sha256": "cf84d31fee744eaa16850044fe2decd0aee921f25cb2c4d963802f37dff9a7ac"
             }
         },
         {
@@ -113,6 +145,14 @@
                 "large": "https://randomuser.me/api/portraits/women/41.jpg",
                 "medium": "https://randomuser.me/api/portraits/med/women/41.jpg",
                 "thumbnail": "https://randomuser.me/api/portraits/thumb/women/41.jpg"
+            },
+            "login": {
+                "username": "blueostrich365",
+                "password": "melissa1",
+                "salt": "Ps0sSjqG",
+                "md5": "d9eb4fdb692f6def261b8d57e62a438c",
+                "sha1": "d2cb7cb9ad7c9b96f7e75aadb4472bd25c9726f9",
+                "sha256": "cf84d31fee744eaa16850044fe2decd0aee921f25cb2c4d963802f37dff9a7ac"
             }
         }
     ]
