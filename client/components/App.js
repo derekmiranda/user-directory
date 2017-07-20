@@ -5,6 +5,7 @@ import SearchBar from './SearchBar';
 
 const style = {
   fontFamily: 'Calibri, sans-serif',
+  padding: '1em',
 }
 
 const App = () => (
