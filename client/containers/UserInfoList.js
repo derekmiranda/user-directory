@@ -20,10 +20,9 @@ const mapStateToProps = ({ users, search }) => {
   const { list, isFetching, nameType } = users;
   
   const filteredList = list.filter(user => {
-    const fullName = `${user.name.first} ${user.name.last}`;
-    console.log('fullName:', fullName);
-    console.log('search:', search);
-    return fullName.indexOf(search) >= 0;
+    const lowercaseFullName = `${user.name.first} ${user.name.last}`.toLowerCase();
+    const lowercaseSearch = search.toLowerCase();
+    return lowercaseFullName.indexOf(lowercaseSearch) >= 0;
   })
 
   const usersByLetter = organizeUsersByLetter(filteredList, nameType);
