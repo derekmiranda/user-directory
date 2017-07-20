@@ -5,7 +5,7 @@ import Popup from './MoreInfoPopup';
 const UserInfoBox = (props) => {
   const {
     first, last, dob, city, photo,
-    username, thumbnail, clicked,
+    username, clicked,
     onPicClick,
   } = props;
 
@@ -21,7 +21,10 @@ const UserInfoBox = (props) => {
           className="popup"
           fullname={fullname}
           username={username}
-          thumbnail={thumbnail}
+          photo={photo}
+          dob={dob}
+          city={city}
+          isOpen={clicked}
         />
       )}
     </div>

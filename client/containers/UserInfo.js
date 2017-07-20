@@ -3,7 +3,7 @@ import UserInfoBox from '../components/UserInfoBox';
 import { togglePopup } from '../actions';
 
 const capitalize = (str) => str.split(' ')
-  .map(str => str[0].toUpperCase() + str.slice(1))
+  .map(str => str[0] && str[0].toUpperCase() + str.slice(1))
   .join(' ')
 
 const cleanUpDOB = (dobStr) => {
