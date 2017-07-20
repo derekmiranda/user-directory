@@ -8,6 +8,7 @@ const plugins = productionMode ?
   [
     new webpack.optimize.UglifyJsPlugin({
       comments: false,
+      minimize: true,
       compress: {
         warnings: false,
         drop_console: true
