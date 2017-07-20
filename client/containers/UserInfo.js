@@ -2,8 +2,11 @@ import { connect } from 'react-redux';
 import UserInfoBox from '../components/UserInfoBox';
 import { togglePopup } from '../actions';
 
-const capitalize = str => str[0].toUpperCase() + str.slice(1);
-const cleanUpDOB = dobStr => {
+const capitalize = (str) => str.split(' ')
+  .map(str => str[0].toUpperCase() + str.slice(1))
+  .join(' ')
+
+const cleanUpDOB = (dobStr) => {
   const dobMatch = dobStr.match(/^(\w{4})-(\w{2})-(\w{2})/);
   const year = dobMatch[1];
   const month = dobMatch[2];
