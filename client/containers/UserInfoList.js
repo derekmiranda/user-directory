@@ -20,7 +20,7 @@ const mapStateToProps = ({ users, search }) => {
   const { list, isFetching, nameType } = users;
   
   const filteredList = list.filter(user => {
-    const lowercaseFullName = `${user.name.first} ${user.name.last}`.toLowerCase();
+    const lowercaseFullName = `${user.first} ${user.last}`.toLowerCase();
     const lowercaseSearch = search.toLowerCase();
     return lowercaseFullName.indexOf(lowercaseSearch) >= 0;
   })

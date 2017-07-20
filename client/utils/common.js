@@ -1,12 +1,4 @@
-export const getNameOfUser = (user, nameType) => user.name[nameType];
-
-const cleanUpUserData = (user) => ({
-  first: user.name.first,
-  last: user.name.last,
-  city: user.location.city,
-  dob: user.dob,
-  photo: user.picture.large,
-})
+export const getNameOfUser = (user, nameType) => user[nameType];
 
 const byName = nameType => (userA, userB) => {
   function getCharsToCompareWith(nameType) {
@@ -64,8 +56,8 @@ export const organizeUsersByLetter = (userList, nameType) => {
     .map(letter => ({
       letter,
       users: usersLetterMap[letter]
-        .sort(byName(nameType))
-        .map(cleanUpUserData),
+        .sort(byName(nameType)),
+        // .map(cleanUpUserData),
     }))
 
   return sortedUsersList;
