@@ -31,7 +31,8 @@
     "test": "jest -u",
     "build": "NODE_ENV=production webpack",
     "watch": "webpack -w",
-    "wds": "webpack-dev-server --progress"
+    "wds": "webpack-dev-server --progress",
+    "postinstall": "npm run build"
   },
   "devDependencies": {
     "babel-jest": "^20.0.3",
