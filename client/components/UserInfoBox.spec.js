@@ -20,12 +20,23 @@ beforeAll(done => {
     .then(done);
 })
 
-it('renders user information', () => {
+beforeEach(() => {
   wrapper = shallow(UserInfoBox(defaultState));
-  
+})
+
+it('renders user photo', () => {
   expect(wrapper.find('img.photo').html()).toMatch(defaultState.photo);
-  expect(wrapper.find('.fullName').html()).toMatch(defaultState.first);
-  expect(wrapper.find('.fullName').html()).toMatch(defaultState.last);
+})
+
+it('renders full name', () => {
+  expect(wrapper.find('.fullname').html()).toMatch(defaultState.first);
+  expect(wrapper.find('.fullname').html()).toMatch(defaultState.last);
+})
+
+it('renders date of birth', () => {
   expect(wrapper.find('.dob').html()).toMatch(defaultState.dob);
+})
+
+it('renders city name', () => {
   expect(wrapper.find('.city').html()).toMatch(defaultState.city);
 })

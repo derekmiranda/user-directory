@@ -31,7 +31,7 @@ it('capitalizes fields', () => {
   wrapper = mount(<UserInfo {...props} store={store}/>);
   const { first, last, city } = props;
 
-  const fullNameWrap = wrapper.find('.fullName');
+  const fullNameWrap = wrapper.find('.fullname');
   expect(fullNameWrap.length).toBe(1);
 
   const fullName = fullNameWrap.text();
