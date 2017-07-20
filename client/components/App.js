@@ -4,6 +4,7 @@ import Sorter from './Sorter';
 
 const App = () => (
   <div>
+    <h1>User Directory</h1>
     <Sorter />
     <UserInfoList />
   </div>

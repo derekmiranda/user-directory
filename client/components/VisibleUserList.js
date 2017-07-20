@@ -11,7 +11,6 @@ const VisibleUserList = (props) => {
 
   return (
     <div>
-      <h1>User Directory</h1>
       {userSections}
     </div>
   )
