@@ -1,6 +1,9 @@
-import { REQUEST_USERS, RECEIVE_USERS } from '../actions';
+import {
+  REQUEST_USERS, RECEIVE_USERS, CHANGE_SORT
+} from '../actions';
 
 const users = (state = {
+  nameType: 'last',
   isFetching: false,
   list: [],
 }, action) => {
@@ -16,6 +19,12 @@ const users = (state = {
         ...state,
         list: userList,
         isFetching: false,
+      }
+    case CHANGE_SORT:
+      const { nameType } = action;
+      return {
+        ...state,
+        nameType,
       }
     default:
       return state;

@@ -17,8 +17,8 @@ export class UserInfoList extends Component {
 }
 
 const mapStateToProps = ({ users }) => {
-  const { list, isFetching } = users;
-  const usersByLetter = organizeUsersByLetter(list, 'last');
+  const { list, isFetching, nameType } = users;
+  const usersByLetter = organizeUsersByLetter(list, nameType);
   return {
     usersByLetter,
     isFetching,

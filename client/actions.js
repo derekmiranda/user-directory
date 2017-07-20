@@ -5,6 +5,7 @@ const usersURL = `https://randomuser.me/api/?results=${NUM_USERS}&exc=login,nat,
 
 export const REQUEST_USERS = 'REQUEST_USERS';
 export const RECEIVE_USERS = 'RECEIVE_USERS';
+export const CHANGE_SORT = 'CHANGE_SORT';
 
 export const requestUsers = () => ({
   type: REQUEST_USERS,  
@@ -36,4 +37,9 @@ export const fetchUsers = (dispatch) => {
       dispatch(receiveUsers(processedUserList))
     })
 }
+
+export const changeSort = (nameType) => ({
+  type: CHANGE_SORT,
+  nameType,
+})
 
