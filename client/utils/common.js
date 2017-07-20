@@ -67,7 +67,6 @@ export const organizeUsersByLetter = (userList, nameType) => {
       letter,
       users: usersLetterMap[letter]
         .sort(byName(nameType)),
-        // .map(cleanUpUserData),
     }))
 
   return sortedUsersList;

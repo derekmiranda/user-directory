@@ -6,17 +6,23 @@ const UserInfoBox = (props) => {
   const {
     first, last, dob, city, photo,
     username, thumbnail, clicked,
+    onPicClick,
   } = props;
 
-  const fullName = `${first} ${last}`;
+  const fullname = `${first} ${last}`;
   return (
     <div>
-      <img className="photo" src={photo} alt={fullName} />
-      <h3 className="fullName">{fullName}</h3>
+      <img className="photo" src={photo} alt={fullname} onClick={() => onPicClick(username)} />
+      <h3 className="fullname">{fullname}</h3>
       <p className="dob">DOB: {dob}</p>
       <p className="city">City: {city}</p>
       { clicked && (
-        <Popup className="popup" username={username} thumbnail={thumbnail} />
+        <Popup
+          className="popup"
+          fullname={fullname}
+          username={username}
+          thumbnail={thumbnail}
+        />
       )}
     </div>
   )

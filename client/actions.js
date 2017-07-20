@@ -52,3 +52,9 @@ export const changeSearch = (search) => ({
   search,
 })
 
+export const TOGGLE_POPUP = 'TOGGLE_POPUP';
+
+export const togglePopup = (id) => ({
+  type: TOGGLE_POPUP,
+  id,
+})

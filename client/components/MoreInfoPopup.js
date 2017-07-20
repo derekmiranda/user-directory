@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Popup = (props) => {
+const Popup = ({ fullname, username, thumbnail}) => {
   return (
     <div>
-      <p>User Guy</p>
+      <img src={thumbnail} alt=""/>
+      <p>{fullname}</p>
+      <p>{username}</p>
     </div>
   )
 }
