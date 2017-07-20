@@ -16,9 +16,17 @@ export class UserInfoList extends Component {
   }
 }
 
-const mapStateToProps = ({ users }) => {
+const mapStateToProps = ({ users, search }) => {
   const { list, isFetching, nameType } = users;
-  const usersByLetter = organizeUsersByLetter(list, nameType);
+  
+  const filteredList = list.filter(user => {
+    const fullName = `${user.name.first} ${user.name.last}`;
+    console.log('fullName:', fullName);
+    console.log('search:', search);
+    return fullName.indexOf(search) >= 0;
+  })
+
+  const usersByLetter = organizeUsersByLetter(filteredList, nameType);
   return {
     usersByLetter,
     isFetching,
